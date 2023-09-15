@@ -67,21 +67,6 @@ void Ex1(){
 	  HAL_Delay(2000);
 }
 
-void Ex2(){
-	HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, RESET);
-	HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
-	HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
-	HAL_Delay(5000);
-	HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, SET);
-	HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, RESET);
-	HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
-	HAL_Delay(2000);
-	HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, SET);
-	HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
-	HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, RESET);
-	HAL_Delay(3000);
-}
-
 
 /* USER CODE END 0 */
 
@@ -126,7 +111,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  Ex2();
+	  Ex1();
 
 
   }
