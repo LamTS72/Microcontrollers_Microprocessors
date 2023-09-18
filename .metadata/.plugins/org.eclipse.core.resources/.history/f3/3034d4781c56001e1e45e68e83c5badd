@@ -254,11 +254,7 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
 				break;
 		}
 	}
-	if(counter_blinked <= 0){
-		counter_blinked = 100;
-	}
 	counter--;
-	counter_blinked--;
 }
 
 /* USER CODE END 4 */

@@ -256,6 +256,8 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
 	}
 	if(counter_blinked <= 0){
 		counter_blinked = 100;
+		HAL_GPIO_TogglePin(PA5_GPIO_Port, PA5_Pin);
+		HAL_GPIO_TogglePin(PA4_GPIO_Port, PA4_Pin);
 	}
 	counter--;
 	counter_blinked--;

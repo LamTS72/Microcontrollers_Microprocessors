@@ -233,7 +233,6 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 int counter = 50;
-int counter_blinked = 100;
 int init = 0;
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
 	if(counter <= 0){
@@ -254,11 +253,7 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
 				break;
 		}
 	}
-	if(counter_blinked <= 0){
-		counter_blinked = 100;
-	}
 	counter--;
-	counter_blinked--;
 }
 
 /* USER CODE END 4 */
