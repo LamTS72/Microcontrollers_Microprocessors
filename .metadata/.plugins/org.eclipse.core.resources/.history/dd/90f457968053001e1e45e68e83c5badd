@@ -67,94 +67,14 @@ void Ex_Init(){
 	HAL_GPIO_WritePin(PA11_GPIO_Port, PA11_Pin, SET);
 	HAL_GPIO_WritePin(PA12_GPIO_Port, PA12_Pin, SET);
 }
-
-void clearAllClock(){
-	HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA2_Pin|PA3_Pin|PA4_Pin|PA5_Pin|
-			PA6_Pin|PA7_Pin|PA8_Pin|PA9_Pin|PA10_Pin|PA11_Pin|PA12_Pin,SET);
+void Ex1(){
+	HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, RESET);
+	HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
+	HAL_Delay(2000);
+	HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, SET);
+	HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, RESET);
+	HAL_Delay(2000);
 }
-
-void setNumberOnClock(int number){
-	  switch(number){
-	  case 0:
-		  HAL_GPIO_WritePin(PA12_GPIO_Port, PA12_Pin, RESET);
-		  break;
-	  case 1:
-		  HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin, RESET);
-		  break;
-	  case 2:
-		  HAL_GPIO_WritePin(PA2_GPIO_Port, PA2_Pin, RESET);
-		  break;
-	  case 3:
-		  HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, RESET);
-		  break;
-	  case 4:
-		  HAL_GPIO_WritePin(PA4_GPIO_Port, PA4_Pin, RESET);
-		  break;
-	  case 5:
-		  HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, RESET);
-		  break;
-	  case 6:
-		  HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, RESET);
-		  break;
-	  case 7:
-		  HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, RESET);
-		  break;
-	  case 8:
-		  HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, RESET);
-		  break;
-	  case 9:
-		  HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, RESET);
-		  break;
-	  case 10:
-		  HAL_GPIO_WritePin(PA10_GPIO_Port, PA10_Pin, RESET);
-		  break;
-	  case 11:
-		  HAL_GPIO_WritePin(PA11_GPIO_Port, PA11_Pin, RESET);
-		  break;
-	  }
-}
-
-void clearNumberOnClock(int number){
-	  switch(number){
-	  case 0:
-		  HAL_GPIO_WritePin(PA12_GPIO_Port, PA12_Pin, SET);
-		  break;
-	  case 1:
-		  HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin,	SET);
-		  break;
-	  case 2:
-		  HAL_GPIO_WritePin(PA2_GPIO_Port, PA2_Pin, SET);
-		  break;
-	  case 3:
-		  HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, SET);
-		  break;
-	  case 4:
-		  HAL_GPIO_WritePin(PA4_GPIO_Port, PA4_Pin, SET);
-		  break;
-	  case 5:
-		  HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, SET);
-		  break;
-	  case 6:
-		  HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
-		  break;
-	  case 7:
-		  HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
-		  break;
-	  case 8:
-		  HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, SET);
-		  break;
-	  case 9:
-		  HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, SET);
-		  break;
-	  case 10:
-		  HAL_GPIO_WritePin(PA10_GPIO_Port, PA10_Pin, SET);
-		  break;
-	  case 11:
-		  HAL_GPIO_WritePin(PA11_GPIO_Port, PA11_Pin, SET);
-		  break;
-	  }
-}
-
 
 
 /* USER CODE END 0 */
@@ -194,25 +114,14 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   Ex_Init();
-  int seconds = 0;
-  int minutes = 0;
-  int hours = 0;
+
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  clearAllClock();
-	  setNumberOnClock(seconds/5);
-	  setNumberOnClock(minutes/300);
-	  setNumberOnClock(hours/3600);
-	  if(seconds == 60) seconds = 0;
-	  if(minutes == 3600) minutes = 0;
-	  if(hours == 43200) hours = 0;
-	  HAL_Delay(100);
-	  seconds++;
-	  minutes++;
-	  hours++;
+	  Ex1();
+
 
   }
   /* USER CODE END 3 */

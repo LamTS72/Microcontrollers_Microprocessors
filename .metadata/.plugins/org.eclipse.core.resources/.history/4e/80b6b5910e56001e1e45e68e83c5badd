@@ -194,25 +194,64 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   Ex_Init();
-  int seconds = 0;
-  int minutes = 0;
-  int hours = 0;
+  int init = 0;
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  switch(init){
+	  case 0:
+		  HAL_GPIO_WritePin(PA12_GPIO_Port, PA12_Pin, RESET);
+		  init++;
+		  break;
+	  case 1:
+		  HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin, RESET);
+		  init++;
+		  break;
+	  case 2:
+		  HAL_GPIO_WritePin(PA2_GPIO_Port, PA2_Pin, RESET);
+		  init++;
+		  break;
+	  case 3:
+		  HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, RESET);
+		  init++;
+		  break;
+	  case 4:
+		  HAL_GPIO_WritePin(PA4_GPIO_Port, PA4_Pin, RESET);
+		  init++;
+		  break;
+	  case 5:
+		  HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, RESET);
+		  init++;
+		  break;
+	  case 6:
+		  HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, RESET);
+		  init++;
+		  break;
+	  case 7:
+		  HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, RESET);
+		  init++;
+		  break;
+	  case 8:
+		  HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, RESET);
+		  init++;
+		  break;
+	  case 9:
+		  HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, RESET);
+		  init++;
+		  break;
+	  case 10:
+		  HAL_GPIO_WritePin(PA10_GPIO_Port, PA10_Pin, RESET);
+		  init++;
+		  break;
+	  case 11:
+		  HAL_GPIO_WritePin(PA11_GPIO_Port, PA11_Pin, RESET);
+		  init = 0;
+		  break;
+	  }
+	  HAL_Delay(1000);
 	  clearAllClock();
-	  setNumberOnClock(seconds/5);
-	  setNumberOnClock(minutes/300);
-	  setNumberOnClock(hours/3600);
-	  if(seconds == 60) seconds = 0;
-	  if(minutes == 3600) minutes = 0;
-	  if(hours == 43200) hours = 0;
-	  HAL_Delay(100);
-	  seconds++;
-	  minutes++;
-	  hours++;
 
   }
   /* USER CODE END 3 */

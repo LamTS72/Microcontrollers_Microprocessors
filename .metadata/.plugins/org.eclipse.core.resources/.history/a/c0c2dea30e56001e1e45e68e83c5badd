@@ -209,7 +209,7 @@ int main(void)
 	  if(seconds == 60) seconds = 0;
 	  if(minutes == 3600) minutes = 0;
 	  if(hours == 43200) hours = 0;
-	  HAL_Delay(100);
+	  HAL_Delay(1000);
 	  seconds++;
 	  minutes++;
 	  hours++;
