@@ -81,28 +81,28 @@ void update7SEG ( int index ){
 		HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
 		HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, SET);
 		HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, SET);
-		display7SEG(led_buffer[index]);
+		display7SEG(led_buffer[]);
 		break;
 	case 1:
 		HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
 		HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, RESET);
 		HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, SET);
 		HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, SET);
-		display7SEG(led_buffer[index]);
+		display7SEG(2);
 		break;
 	case 2:
 		HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
 		HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
 		HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, RESET);
 		HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, SET);
-		display7SEG(led_buffer[index]);
+		display7SEG(3);
 		break;
 	default:
 		HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
 		HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
 		HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, SET);
 		HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, RESET);
-		display7SEG(led_buffer[index]);
+		display7SEG(0);
 		break;
 	}
 }
@@ -276,28 +276,45 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 int counter = 50;
+int init = 0;
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
 	if(counter <= 0){
 		HAL_GPIO_TogglePin(PA5_GPIO_Port, PA5_Pin);
 		HAL_GPIO_TogglePin(PA4_GPIO_Port, PA4_Pin);
 		counter = 50;
 		clearAll();
-		switch (index_led){
+		switch (init){
 			case 0:
-				update7SEG(index_led);
-				index_led++;
+				HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, RESET);
+				HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
+				HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, SET);
+				HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, SET);
+				display7SEG(1);
+				init++;
 				break;
 			case 1:
-				update7SEG(index_led);
-				index_led++;
+				HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
+				HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, RESET);
+				HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, SET);
+				HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, SET);
+				display7SEG(2);
+				init++;
 				break;
 			case 2:
-				update7SEG(index_led);
-				index_led++;
+				HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
+				HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
+				HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, RESET);
+				HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, SET);
+				display7SEG(3);
+				init++;
 				break;
 			default:
-				update7SEG(index_led);
-				index_led = 0;
+				HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
+				HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
+				HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, SET);
+				HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, RESET);
+				display7SEG(0);
+				init = 0;
 				break;
 		}
 	}
