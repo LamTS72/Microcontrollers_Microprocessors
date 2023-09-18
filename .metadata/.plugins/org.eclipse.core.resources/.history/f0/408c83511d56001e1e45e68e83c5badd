@@ -281,27 +281,24 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
 	if(counter <= 0){
 		counter = 50;
 		clearAll();
-		if(counter == 50 || counter == 25){
-			switch (index_led){
-				case 0:
-					update7SEG(index_led);
-					index_led++;
-					break;
-				case 1:
-					update7SEG(index_led);
-					index_led++;
-					break;
-				case 2:
-					update7SEG(index_led);
-					index_led++;
-					break;
-				default:
-					update7SEG(index_led);
-					index_led = 0;
-					break;
-			}
+		switch (index_led){
+			case 0:
+				update7SEG(index_led);
+				index_led++;
+				break;
+			case 1:
+				update7SEG(index_led);
+				index_led++;
+				break;
+			case 2:
+				update7SEG(index_led);
+				index_led++;
+				break;
+			default:
+				update7SEG(index_led);
+				index_led = 0;
+				break;
 		}
-
 	}
 	if(counter_blinked <= 0){
 		HAL_GPIO_TogglePin(PA5_GPIO_Port, PA5_Pin);
