@@ -279,6 +279,8 @@ int counter = 50;
 int counter_blinked = 100;
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
 	if(counter <= 0){
+		HAL_GPIO_TogglePin(PA5_GPIO_Port, PA5_Pin);
+		HAL_GPIO_TogglePin(PA4_GPIO_Port, PA4_Pin);
 		counter = 50;
 		clearAll();
 		switch (index_led){
@@ -300,13 +302,7 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
 				break;
 		}
 	}
-	if(counter_blinked <= 0){
-		HAL_GPIO_TogglePin(PA5_GPIO_Port, PA5_Pin);
-		HAL_GPIO_TogglePin(PA4_GPIO_Port, PA4_Pin);
-		counter_blinked =100;
-	}
 	counter--;
-	counter_blinked--;
 }
 
 /* USER CODE END 4 */
