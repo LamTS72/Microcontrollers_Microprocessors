@@ -21,6 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "software_timer.h"
 
 /* USER CODE END Includes */
 
@@ -73,7 +74,7 @@ void clearAll(){
 
 const int MAX_LED = 4;
 int index_led = 0;
-int led_buffer [4] = {1 , 2 , 3 , 0};
+int led_buffer[4];
 void update7SEG ( int index ){
 	switch(index){
 	case 0:
@@ -106,6 +107,13 @@ void update7SEG ( int index ){
 		break;
 	}
 }
+void updateClockBuffer(int hours, int minutes){
+	led_buffer[0] = (hours > 9)? hours/10 : 0;
+	led_buffer[1] = hours%10;
+	led_buffer[2] = (minutes > 9)? minutes/10 : 0;
+	led_buffer[3] = minutes%10;
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -143,11 +151,47 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  setTimer0(10);
+  setTimer1(15);
+  setTimer2(15);
+  int hour = 15 , minute = 8 , second = 50;
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  if(timer0_flag == 1){
+		  if(second >= 60){
+			  second = 0;
+			  minute++;
+		  }
+		  if(minute >= 60){
+			  minute = 0;
+			  hour++;
+		  }
+		  if(hour >= 24){
+			  hour = 0;
+		  }
+		  second++;
+		  updateClockBuffer(hour, minute);
+		  setTimer0(100);
+	  }
+	  if(timer2_flag == 1){
+		  update7SEG(index_led);
+		  if(index_led >= 3){
+			  index_led = 0;
+		  }
+		  else{
+			 index_led++;
+		  }
+		  setTimer2(50);
+	  }
+
+	  if(timer1_flag == 1){
+		  HAL_GPIO_TogglePin(PA4_GPIO_Port, PA4_Pin);
+		  HAL_GPIO_TogglePin(PA5_GPIO_Port, PA5_Pin);
+		  setTimer1(100);
+	  }
   }
   /* USER CODE END 3 */
 }
@@ -275,41 +319,8 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter = 50;
-int counter_blinked = 100;
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
-	if(counter <= 0){
-		counter = 50;
-		clearAll();
-		if(counter == 50 || counter == 25){
-			switch (index_led){
-				case 0:
-					update7SEG(index_led);
-					index_led++;
-					break;
-				case 1:
-					update7SEG(index_led);
-					index_led++;
-					break;
-				case 2:
-					update7SEG(index_led);
-					index_led++;
-					break;
-				default:
-					update7SEG(index_led);
-					index_led = 0;
-					break;
-			}
-		}
-
-	}
-	if(counter_blinked <= 0){
-		HAL_GPIO_TogglePin(PA5_GPIO_Port, PA5_Pin);
-		HAL_GPIO_TogglePin(PA4_GPIO_Port, PA4_Pin);
-		counter_blinked =100;
-	}
-	counter--;
-	counter_blinked--;
+	timerRun();
 }
 
 /* USER CODE END 4 */
