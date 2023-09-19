@@ -6606,3 +6606,89 @@
 2023-09-19 14:51:26,688 [INFO] ProjectBuilder:4283 - Time for Generating toolchain IDE Files: 1230mS.
 2023-09-19 14:51:26,689 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 1mS.
 2023-09-19 14:51:26,690 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
+2023-09-19 16:30:23,731 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:25,178 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:27,069 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:28,555 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:30,410 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:31,783 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:33,879 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:35,299 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:37,081 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:38,212 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:39,945 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:30:41,677 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:31:00,975 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 576497456 Bytes (980418560)
+2023-09-19 16:31:02,656 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 587647088 Bytes (980418560)
+2023-09-19 16:31:03,510 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 649906576 Bytes (980418560)
+2023-09-19 16:31:03,660 [INFO] BlockDiagram:2753 - set Specific Code input for plugin: NVIC
+2023-09-19 16:31:03,660 [INFO] BlockDiagram:2753 - set Specific Code input for plugin: SYS
+2023-09-19 16:31:03,660 [INFO] BlockDiagram:2753 - set Specific Code input for plugin: GPIO
+2023-09-19 16:31:03,660 [INFO] BlockDiagram:2753 - set Specific Code input for plugin: RCC
+2023-09-19 16:31:03,660 [INFO] BlockDiagram:2753 - set Specific Code input for plugin: TIM1_8F1
+2023-09-19 16:31:03,661 [INFO] CodeGenerator:690 - code generatio: config db path: D:\STM32CubeIDE_1.10.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.6.0.202206222154\\db\
+2023-09-19 16:31:03,780 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\license.tmp_save
+2023-09-19 16:31:03,862 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\license.tmp
+2023-09-19 16:31:03,891 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\gpio.tmp_save
+2023-09-19 16:31:04,017 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\gpio.tmp
+2023-09-19 16:31:04,072 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\stm32f1xx_it.c_save
+2023-09-19 16:31:04,150 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\stm32f1xx_it.c
+2023-09-19 16:31:04,162 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\stm32f1xx_it.h_save
+2023-09-19 16:31:04,215 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\stm32f1xx_it.h
+2023-09-19 16:31:04,226 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\stm32f1xx_hal_msp.c_save
+2023-09-19 16:31:04,299 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\stm32f1xx_hal_msp.c
+2023-09-19 16:31:04,302 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\system.tmp_save
+2023-09-19 16:31:04,401 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\system.tmp
+2023-09-19 16:31:04,413 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\stm32f1xx_hal_conf.h_save
+2023-09-19 16:31:04,518 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\stm32f1xx_hal_conf.h
+2023-09-19 16:31:04,524 [WARN] IPConfigManager:3348 - IP not found : TIM
+2023-09-19 16:31:04,524 [WARN] CodeGenerator:3567 - IP not found : null
+2023-09-19 16:31:04,533 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\main.h_save
+2023-09-19 16:31:04,634 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\main.h
+2023-09-19 16:31:04,643 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\main.c_save
+2023-09-19 16:31:04,743 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\main.c
+2023-09-19 16:31:05,275 [INFO] ProjectBuilder:2919 - Time for Copy HAL[1] : 127mS.
+2023-09-19 16:31:05,277 [INFO] ProjectBuilder:4115 - Project Generator version: 3.17.1
+2023-09-19 16:31:05,526 [INFO] ConfigFileManager:1394 - The Die is : DIE412
+2023-09-19 16:31:06,488 [INFO] ProjectBuilder:4283 - Time for Generating toolchain IDE Files: 1211mS.
+2023-09-19 16:31:06,489 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 1mS.
+2023-09-19 16:31:06,490 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
+2023-09-19 16:31:56,754 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:31:58,240 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:31:59,966 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:32:01,319 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-09-19 16:32:09,584 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 612798640 Bytes (984612864)
+2023-09-19 16:32:10,557 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 622978392 Bytes (984612864)
+2023-09-19 16:32:12,114 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 681908296 Bytes (984612864)
+2023-09-19 16:32:12,263 [INFO] BlockDiagram:2753 - set Specific Code input for plugin: NVIC
+2023-09-19 16:32:12,263 [INFO] BlockDiagram:2753 - set Specific Code input for plugin: SYS
+2023-09-19 16:32:12,264 [INFO] BlockDiagram:2753 - set Specific Code input for plugin: GPIO
+2023-09-19 16:32:12,264 [INFO] BlockDiagram:2753 - set Specific Code input for plugin: RCC
+2023-09-19 16:32:12,264 [INFO] BlockDiagram:2753 - set Specific Code input for plugin: TIM1_8F1
+2023-09-19 16:32:12,264 [INFO] CodeGenerator:690 - code generatio: config db path: D:\STM32CubeIDE_1.10.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.6.0.202206222154\\db\
+2023-09-19 16:32:12,395 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\license.tmp_save
+2023-09-19 16:32:12,483 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\license.tmp
+2023-09-19 16:32:12,528 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\gpio.tmp_save
+2023-09-19 16:32:12,625 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\gpio.tmp
+2023-09-19 16:32:12,677 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\stm32f1xx_it.c_save
+2023-09-19 16:32:12,742 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\stm32f1xx_it.c
+2023-09-19 16:32:12,745 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\stm32f1xx_it.h_save
+2023-09-19 16:32:12,790 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\stm32f1xx_it.h
+2023-09-19 16:32:12,800 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\stm32f1xx_hal_msp.c_save
+2023-09-19 16:32:12,866 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\stm32f1xx_hal_msp.c
+2023-09-19 16:32:12,868 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\system.tmp_save
+2023-09-19 16:32:12,909 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\MXTmpFiles\system.tmp
+2023-09-19 16:32:12,919 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\stm32f1xx_hal_conf.h_save
+2023-09-19 16:32:13,023 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\stm32f1xx_hal_conf.h
+2023-09-19 16:32:13,028 [WARN] IPConfigManager:3348 - IP not found : TIM
+2023-09-19 16:32:13,029 [WARN] CodeGenerator:3567 - IP not found : null
+2023-09-19 16:32:13,038 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\main.h_save
+2023-09-19 16:32:13,118 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Inc\main.h
+2023-09-19 16:32:13,128 [INFO] CodeEngine:245 - oldGeneratedFile, D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\main.c_save
+2023-09-19 16:32:13,235 [INFO] CodeEngine:269 - Generated code: D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\Core\Src\main.c
+2023-09-19 16:32:13,750 [INFO] ProjectBuilder:2919 - Time for Copy HAL[1] : 107mS.
+2023-09-19 16:32:13,752 [INFO] ProjectBuilder:4115 - Project Generator version: 3.17.1
+2023-09-19 16:32:13,988 [INFO] ConfigFileManager:1394 - The Die is : DIE412
+2023-09-19 16:32:14,854 [INFO] ProjectBuilder:4283 - Time for Generating toolchain IDE Files: 1102mS.
+2023-09-19 16:32:14,855 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 1mS.
+2023-09-19 16:32:14,856 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
