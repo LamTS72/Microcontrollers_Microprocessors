@@ -82,31 +82,31 @@ int led_buffer[4];
 void update7SEG ( int index ){
 	switch(index){
 	case 0:
-		HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, RESET);
-		HAL_GPIO_WritePin(PA4_GPIO_Port, PA4_Pin, SET);
-		HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, SET);
-		HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
+		HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, RESET);
+		HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
+		HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, SET);
+		HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, SET);
 		display7SEG(led_buffer[index]);
 		break;
 	case 1:
-		HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, SET);
-		HAL_GPIO_WritePin(PA4_GPIO_Port, PA4_Pin, RESET);
-		HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, SET);
 		HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
+		HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, RESET);
+		HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, SET);
+		HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, SET);
 		display7SEG(led_buffer[index]);
 		break;
 	case 2:
-		HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, SET);
-		HAL_GPIO_WritePin(PA4_GPIO_Port, PA4_Pin, SET);
-		HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, RESET);
 		HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
+		HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
+		HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, RESET);
+		HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, SET);
 		display7SEG(led_buffer[index]);
 		break;
 	default:
-		HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, SET);
-		HAL_GPIO_WritePin(PA4_GPIO_Port, PA4_Pin, SET);
-		HAL_GPIO_WritePin(PA5_GPIO_Port, PA5_Pin, SET);
-		HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, RESET);
+		HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
+		HAL_GPIO_WritePin(PA7_GPIO_Port, PA7_Pin, SET);
+		HAL_GPIO_WritePin(PA8_GPIO_Port, PA8_Pin, SET);
+		HAL_GPIO_WritePin(PA9_GPIO_Port, PA9_Pin, RESET);
 		display7SEG(led_buffer[index]);
 		break;
 	}
@@ -192,8 +192,8 @@ int main(void)
 	  }
 
 	  if(timer1_flag == 1){
-		  HAL_GPIO_TogglePin(PA1_GPIO_Port, PA1_Pin);
-		  HAL_GPIO_TogglePin(PA2_GPIO_Port, PA2_Pin);
+		  HAL_GPIO_TogglePin(PA4_GPIO_Port, PA4_Pin);
+		  HAL_GPIO_TogglePin(PA5_GPIO_Port, PA5_Pin);
 		  setTimer1(100);
 	  }
   }

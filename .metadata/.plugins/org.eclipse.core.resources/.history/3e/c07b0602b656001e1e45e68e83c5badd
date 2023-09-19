@@ -192,8 +192,8 @@ int main(void)
 	  }
 
 	  if(timer1_flag == 1){
-		  HAL_GPIO_TogglePin(PA1_GPIO_Port, PA1_Pin);
-		  HAL_GPIO_TogglePin(PA2_GPIO_Port, PA2_Pin);
+		  HAL_GPIO_TogglePin(PA4_GPIO_Port, PA4_Pin);
+		  HAL_GPIO_TogglePin(PA5_GPIO_Port, PA5_Pin);
 		  setTimer1(100);
 	  }
   }
