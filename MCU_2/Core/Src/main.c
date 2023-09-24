@@ -58,56 +58,32 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN 0 */
 void Ex_Init(){
 	HAL_GPIO_WritePin(GPIOA, PA1_Pin|PA2_Pin|PA3_Pin| PA4_Pin|PA5_Pin| PA6_Pin, SET);
-
+    HAL_GPIO_WritePin(GPIOB, PB8_Pin|PB9_Pin|PB10_Pin|PB11_Pin|PB12_Pin|PB13_Pin|PB14_Pin|PB15_Pin, SET);
+    HAL_GPIO_WritePin(GPIOA, PA8_Pin|PA9_Pin|PA10_Pin|PA11_Pin|PA12_Pin|PA13_Pin|PA14_Pin|PA15_Pin, SET);
 }
 
-const uint8_t letter_A[8] = {
-    0b00111100,
-    0b01000010,
-    0b01000010,
-    0b01111110,
-    0b01000010,
-    0b01000010,
-    0b01000010,
-    0b00000000
-};
 
-// Function to display a pattern on the LED matrix
-void displayPattern(const uint8_t pattern[8]) {
-    for (int row = 0; row < 8; row++) {
-        // Set the row pins (PB8-15) according to the pattern
-        HAL_GPIO_WritePin(GPIOB, PB8_Pin|PB9_Pin|PB10_Pin|PB11_Pin|PB12_Pin|PB13_Pin|PB14_Pin|PB15_Pin,
-                          (pattern[row] << 8)); // Shift the pattern to match pins PB8-15
-
-        // Enable the current row (one at a time)
-        HAL_GPIO_WritePin(GPIOB, 1 << (8 + row), RESET);
-
-    	if(timer3_flag == 1){
-    		setTimer3(100);
-    	}
-
-        // Disable the current row
-        HAL_GPIO_WritePin(GPIOB, 1 << (8 + row), SET);
-    }
-}
-
-const int MAX_LED_MATRIX = 8;
-int index_led_matrix = 0;
-uint8_t matrix_buffer[8] = {0x01, 0x06, 0x38, 0xC8, 0xC8, 0x38, 0x06, 0x01};
 uint16_t row_pin[8] = {PB8_Pin,PB9_Pin,PB10_Pin,PB11_Pin,PB12_Pin,PB13_Pin,PB14_Pin,PB15_Pin};
 uint16_t col_pin[8] = {PA8_Pin,PA9_Pin,PA10_Pin,PA11_Pin,PA12_Pin,PA13_Pin,PA14_Pin,PA15_Pin};
+const int MAX_LED_MATRIX = 8;
+int index_led_matrix = 0;
+uint8_t matrix_buffer[8] = {0x1F, 0x24, 0x44, 0xC4, 0xC4, 0x44, 0x24, 0x1F};
+uint16_t rows_wordA[8]= {0x1F, 0x24, 0x44, 0xC4, 0xC4, 0x44, 0x24, 0x1F}; // control row start from bot to top (0-7)
+uint16_t cols[8]= {0x01, 0x02,0x04, 0x08, 0x10, 0x20, 0x40, 0x80}; // control column start from right to left (0-7)
 
 void updateLEDMatrix(int index) {
 	HAL_GPIO_WritePin(GPIOB, PB8_Pin|PB9_Pin|PB10_Pin|PB11_Pin|PB12_Pin|PB13_Pin|PB14_Pin|PB15_Pin, SET);
 	HAL_GPIO_WritePin(GPIOA, PA8_Pin|PA9_Pin|PA10_Pin|PA11_Pin|PA12_Pin|PA13_Pin|PA14_Pin|PA15_Pin, SET);
-
-	for(int i = 0; i < 8; i++) {
-		if(matrix_buffer[index] & (0x80 >> i)) {
-			HAL_GPIO_WritePin(GPIOB, row_pin[i], 0);
+	for(int j = 0; j < 100; j++){
+		for(int i = 0; i < 8; i++) {
+			if(matrix_buffer[index] & (0x01 << i)) {
+				HAL_GPIO_WritePin(GPIOB, row_pin[i], RESET);
+			}
 		}
+
+		HAL_GPIO_WritePin(GPIOA, col_pin[index], RESET);
 	}
 
-	HAL_GPIO_WritePin(GPIOA, col_pin[index], 0);
 }
 
 
@@ -118,6 +94,7 @@ void display7SEG(int num){
   	}
 }
 void clearAll(){
+	HAL_GPIO_WritePin(GPIOA, PA3_Pin| PA4_Pin|PA5_Pin| PA6_Pin, SET);
 	HAL_GPIO_WritePin(GPIOB, PB0_Pin |PB1_Pin|PB2_Pin|PB3_Pin|PB4_Pin|
 			PB5_Pin|PB6_Pin,SET);
 }
@@ -126,6 +103,7 @@ const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4];
 void update7SEG ( int index ){
+	clearAll();
 	switch(index){
 	case 0:
 		HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, RESET);
@@ -201,16 +179,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  Ex_Init();
   setTimer0(10);
   setTimer1(15);
   setTimer2(15);
-  setTimer3(15);
+  setTimer3(100);
   int hour = 15 , minute = 8 , second = 50;
-  HAL_GPIO_WritePin(GPIOB, PB8_Pin|PB9_Pin|PB10_Pin|PB11_Pin|PB12_Pin|PB13_Pin|PB14_Pin|PB15_Pin, RESET);
-  HAL_GPIO_WritePin(GPIOA, PA8_Pin|PA9_Pin|PA10_Pin|PA11_Pin|PA12_Pin|PA13_Pin|PA14_Pin|PA15_Pin, RESET);
 
-//  HAL_GPIO_WritePin(GPIOB, PB15_Pin, RESET);
-//  HAL_GPIO_WritePin(GPIOA, PA15_Pin, RESET);
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -242,20 +218,20 @@ int main(void)
 		  }
 		  setTimer2(50);
 	  }
-
 	  if(timer1_flag == 1){
 		  HAL_GPIO_TogglePin(PA1_GPIO_Port, PA1_Pin);
 		  HAL_GPIO_TogglePin(PA2_GPIO_Port, PA2_Pin);
 		  setTimer1(100);
 	  }
-//	  if(timer3_flag == 1) {
-//		  setTimer3(100);
-//		  updateLEDMatrix(index_led_matrix++);
-//		  if(index_led_matrix == MAX_LED_MATRIX) {
-//			  index_led_matrix = 0;
-//		  }
-//	  }
-	  displayPattern(letter_A);
+	  if(timer3_flag == 1) {
+		  updateLEDMatrix(index_led_matrix++);
+		  if(index_led_matrix == MAX_LED_MATRIX) {
+			  index_led_matrix = 0;
+		  }
+		  setTimer3(15);
+	  }
+
+
   }
   /* USER CODE END 3 */
 }

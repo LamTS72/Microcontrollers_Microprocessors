@@ -1,4 +1,4 @@
-13:38:23 **** Incremental Build of configuration Debug for project MCU_2 ****
+18:31:18 **** Incremental Build of configuration Debug for project MCU_2 ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "MCU_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MCU_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -8,13 +8,13 @@ arm-none-eabi-size   MCU_2.elf
 arm-none-eabi-objdump -h -S  MCU_2.elf  > "MCU_2.list"
 arm-none-eabi-objcopy  -O ihex  MCU_2.elf  "MCU_2.hex"
    text	   data	    bss	    dec	    hex	filename
-   8124	     20	   1692	   9836	   266c	MCU_2.elf
+   8288	     60	   1700	  10048	   2740	MCU_2.elf
 arm-none-eabi-objcopy  -O binary  MCU_2.elf  "MCU_2.bin"
 Finished building: default.size.stdout
  
 Finished building: MCU_2.hex
+ 
 Finished building: MCU_2.bin
- 
- 
 Finished building: MCU_2.list
+ 
  
