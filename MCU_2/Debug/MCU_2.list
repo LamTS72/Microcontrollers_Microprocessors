@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020034  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000849d  00000000  00000000  0002005d  2**0
+ 12 .debug_info   00008479  00000000  00000000  0002005d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001676  00000000  00000000  000284fa  2**0
+ 13 .debug_abbrev 00001676  00000000  00000000  000284d6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000009a0  00000000  00000000  00029b70  2**3
+ 14 .debug_aranges 000009a0  00000000  00000000  00029b50  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008e8  00000000  00000000  0002a510  2**3
+ 15 .debug_ranges 000008e8  00000000  00000000  0002a4f0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00016354  00000000  00000000  0002adf8  2**0
+ 16 .debug_macro  00016354  00000000  00000000  0002add8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009525  00000000  00000000  0004114c  2**0
+ 17 .debug_line   00009525  00000000  00000000  0004112c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008223f  00000000  00000000  0004a671  2**0
+ 18 .debug_str    0008222f  00000000  00000000  0004a651  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000cc8b0  2**0
+ 19 .comment      00000050  00000000  00000000  000cc880  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002768  00000000  00000000  000cc900  2**2
+ 20 .debug_frame  00002768  00000000  00000000  000cc8d0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -108,10 +108,10 @@ void Ex_Init(){
  800017c:	40010c00 	.word	0x40010c00
 
 08000180 <updateLEDMatrix>:
+const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
 uint8_t matrix_buffer[8] = {0x1F, 0x24, 0x44, 0xC4, 0xC4, 0x44, 0x24, 0x1F};
-uint16_t rows_wordA[8]= {0x1F, 0x24, 0x44, 0xC4, 0xC4, 0x44, 0x24, 0x1F}; // control row start from bot to top (0-7)
-uint16_t cols[8]= {0x01, 0x02,0x04, 0x08, 0x10, 0x20, 0x40, 0x80}; // control column start from right to left (0-7)
+
 
 void updateLEDMatrix(int index) {
  8000180:	b580      	push	{r7, lr}
@@ -638,8 +638,8 @@ int main(void)
  80004fe:	4a19      	ldr	r2, [pc, #100]	; (8000564 <main+0x118>)
  8000500:	6013      	str	r3, [r2, #0]
 		  }
-		  setTimer2(50);
- 8000502:	2032      	movs	r0, #50	; 0x32
+		  setTimer2(10);
+ 8000502:	200a      	movs	r0, #10
  8000504:	f000 f94e 	bl	80007a4 <setTimer2>
 	  }
 	  if(timer1_flag == 1){

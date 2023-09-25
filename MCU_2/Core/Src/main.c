@@ -68,8 +68,7 @@ uint16_t col_pin[8] = {PA8_Pin,PA9_Pin,PA10_Pin,PA11_Pin,PA12_Pin,PA13_Pin,PA14_
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
 uint8_t matrix_buffer[8] = {0x1F, 0x24, 0x44, 0xC4, 0xC4, 0x44, 0x24, 0x1F};
-uint16_t rows_wordA[8]= {0x1F, 0x24, 0x44, 0xC4, 0xC4, 0x44, 0x24, 0x1F}; // control row start from bot to top (0-7)
-uint16_t cols[8]= {0x01, 0x02,0x04, 0x08, 0x10, 0x20, 0x40, 0x80}; // control column start from right to left (0-7)
+
 
 void updateLEDMatrix(int index) {
 	HAL_GPIO_WritePin(GPIOB, PB8_Pin|PB9_Pin|PB10_Pin|PB11_Pin|PB12_Pin|PB13_Pin|PB14_Pin|PB15_Pin, SET);
@@ -216,7 +215,7 @@ int main(void)
 		  else{
 			 index_led++;
 		  }
-		  setTimer2(50);
+		  setTimer2(10);
 	  }
 	  if(timer1_flag == 1){
 		  HAL_GPIO_TogglePin(PA1_GPIO_Port, PA1_Pin);
