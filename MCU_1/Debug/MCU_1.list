@@ -212,11 +212,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   Ex_Init();
  8000208:	f7ff ffa0 	bl	800014c <Ex_Init>
-  while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  //Ex1();
 	  Ex2();
  800020c:	f7ff ffb4 	bl	8000178 <Ex2>
  8000210:	e7fc      	b.n	800020c <main+0x14>
