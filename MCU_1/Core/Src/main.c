@@ -188,7 +188,7 @@ int main(void)
 		HAL_GPIO_WritePin(PA6_GPIO_Port, PA6_Pin, SET);
 		if(counter <= 0){
 			init = 0;
-			counter = 2;
+			counter = 5;
 		}
 		break;
 	default:

@@ -421,8 +421,8 @@ int main(void)
 			init = 0;
  8000374:	2300      	movs	r3, #0
  8000376:	603b      	str	r3, [r7, #0]
-			counter = 2;
- 8000378:	2302      	movs	r3, #2
+			counter = 5;
+ 8000378:	2305      	movs	r3, #5
  800037a:	607b      	str	r3, [r7, #4]
 		}
 		break;
