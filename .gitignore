@@ -1,5 +1,3 @@
-# ignore ALL .log files
-*.log
-
-# ignore ALL files in ANY directory named temp
-temp/
+# Ignore compiled executables and libraries
+*.exe
+*.out
