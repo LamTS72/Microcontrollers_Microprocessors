@@ -1,0 +1,32 @@
+/*
+ * led7seg.c
+ *
+ *  Created on: Sep 26, 2023
+ *      Author: Windows
+ */
+
+
+#include "led7seg.h"
+
+void display7SEG(int num){
+  	uint8_t signal[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x12, 0x82, 0xF8, 0x80, 0x90};
+  	for(int i = 0; i < 7; i++ ){
+  		HAL_GPIO_WritePin(GPIOB, PB0_Pin << i, (signal[num] >> i) & 0x01);
+  	}
+}
+void clearAll_7SEG(){
+	HAL_GPIO_WritePin(GPIOB, PB0_Pin |PB1_Pin|PB2_Pin|PB3_Pin|
+								PB4_Pin|PB5_Pin|PB6_Pin,SET);
+}
+void updateClockBuffer_vertical(int hours, int minutes){
+	led_buffer[0] = (hours > 9)? hours/10 : 0;
+	led_buffer[1] = hours%10;
+
+}
+void updateClockBuffer_horizontal(int hours, int minutes){
+	led_buffer[2] = (minutes > 9)? minutes/10 : 0;
+	led_buffer[3] = minutes%10;
+}
+void led7seg_run(){
+
+}

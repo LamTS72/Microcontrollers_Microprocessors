@@ -1,0 +1,22 @@
+/*
+ * fsm.c
+ *
+ *  Created on: Sep 26, 2023
+ *      Author: Windows
+ */
+
+#include "fsm.h"
+
+int init = 0;
+void fsm_mode_run(){
+	switch(init){
+	case 0:
+		break;
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	}
+}

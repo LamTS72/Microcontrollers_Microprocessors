@@ -1,0 +1,13 @@
+/*
+ * fsm.c
+ *
+ *  Created on: Sep 26, 2023
+ *      Author: Windows
+ */
+
+#include "fsm.h"
+
+int init = ;
+void fsm_mode_run(){
+
+}
