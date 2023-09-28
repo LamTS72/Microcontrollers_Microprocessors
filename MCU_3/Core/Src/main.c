@@ -108,6 +108,7 @@ int main(void)
   setTimer1(15);
   setTimer2(15);
   setTimer3(15);
+  setTimer4(15);
   while (1)
   {
     /* USER CODE END WHILE */
@@ -244,11 +245,18 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : PA12_Pin PA13_Pin PA14_Pin */
+  GPIO_InitStruct.Pin = PA12_Pin|PA13_Pin|PA14_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
 }
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
 	timerRun();
+	getKeyInput();
 }
 
 /* USER CODE END 4 */

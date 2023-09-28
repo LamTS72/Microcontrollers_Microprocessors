@@ -63,7 +63,7 @@ void led7seg_run(){
 	  else{
 		 index_led++;
 	  }
-	  setTimer3(20);
+	  setTimer3(15);
 	}
 
 }
