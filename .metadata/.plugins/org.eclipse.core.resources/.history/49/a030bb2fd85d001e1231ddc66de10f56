@@ -1,0 +1,21 @@
+/*
+ * traffic_ligh.h
+ *
+ *  Created on: Sep 28, 2023
+ *      Author: Windows
+ */
+
+#ifndef INC_TRAFFIC_LIGH_H_
+#define INC_TRAFFIC_LIGH_H_
+
+#include "main.h"
+#include "led7seg.h"
+extern const int red_counter;
+extern const int green_counter;
+extern const int yellow_counter;
+extern int counter_v;
+extern int counter_h;
+extern int light_mode;
+void traffic_light();
+
+#endif /* INC_TRAFFIC_LIGH_H_ */

@@ -16,8 +16,8 @@ extern int led_buffer[4];
 
 void display7SEG(int num);
 void clearAll_7SEG();
-void updateClockBuffer_vertical(int hours, int minutes);
-void updateClockBuffer_horizontal(int hours, int minutes);
+void updateClockBuffer_vertical(int num);
+void updateClockBuffer_horizontal(int num);
 void led7seg_run();
-void update7SEG ( int index );
+void update7SEG( int index );
 #endif /* INC_LED7SEG_H_ */

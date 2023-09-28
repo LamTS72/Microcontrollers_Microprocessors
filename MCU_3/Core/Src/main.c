@@ -25,6 +25,7 @@
 #include "software_timer.h"
 #include "led7seg.h"
 #include "fsm.h"
+#include "traffic_ligh.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -106,12 +107,16 @@ int main(void)
   setTimer0(10);
   setTimer1(15);
   setTimer2(15);
+  setTimer3(15);
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+//	  display7SEG(counter--);
+//	  traffic_light();
+//	  HAL_Delay(1000);
+	  fsm_mode_run();
   }
   /* USER CODE END 3 */
 }
@@ -213,7 +218,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, PA0_Pin|PA1_Pin|PA2_Pin|PA3_Pin
                           |PA4_Pin|PA5_Pin|PA6_Pin|PA7_Pin
-                          |PA8_Pin|PA10_Pin|PA11_Pin, GPIO_PIN_RESET);
+                          |PA8_Pin|PA9_Pin|PA10_Pin|PA11_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, PB0_Pin|PB1_Pin|PB2_Pin|PB3_Pin
@@ -221,10 +226,10 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PA0_Pin PA1_Pin PA2_Pin PA3_Pin
                            PA4_Pin PA5_Pin PA6_Pin PA7_Pin
-                           PA8_Pin PA10_Pin PA11_Pin */
+                           PA8_Pin PA9_Pin PA10_Pin PA11_Pin */
   GPIO_InitStruct.Pin = PA0_Pin|PA1_Pin|PA2_Pin|PA3_Pin
                           |PA4_Pin|PA5_Pin|PA6_Pin|PA7_Pin
-                          |PA8_Pin|PA10_Pin|PA11_Pin;
+                          |PA8_Pin|PA9_Pin|PA10_Pin|PA11_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -238,12 +243,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PA9_Pin */
-  GPIO_InitStruct.Pin = PA9_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(PA9_GPIO_Port, &GPIO_InitStruct);
 
 }
 

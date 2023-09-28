@@ -1,0 +1,17 @@
+/*
+ * traffic_ligh.h
+ *
+ *  Created on: Sep 28, 2023
+ *      Author: Windows
+ */
+
+#ifndef INC_TRAFFIC_LIGH_H_
+#define INC_TRAFFIC_LIGH_H_
+
+extern int red_counter;
+extern int green_counter;
+extern int yellow_counter;
+
+void traffic_light();
+
+#endif /* INC_TRAFFIC_LIGH_H_ */

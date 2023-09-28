@@ -10,6 +10,7 @@
 #include "main.h"
 #include "software_timer.h"
 #include "led7seg.h"
+#include "traffic_ligh.h"
 
 #define MODE_1  1 //normal
 #define MODE_2	2 //red_blink
