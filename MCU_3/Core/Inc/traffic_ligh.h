@@ -18,7 +18,10 @@ extern int counter_h;
 extern int counter_v;
 extern int light_hmode;
 extern int light_vmode;
+extern int led_hmode;
+extern int led_vmode;
 void traffic_light_horizontal();
 void traffic_light_vertical();
+void traffic_led7seg();
 void led_blinked(int blinked_mod);
 #endif /* INC_TRAFFIC_LIGH_H_ */

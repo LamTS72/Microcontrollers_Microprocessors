@@ -17,7 +17,7 @@ void fsm_mode_run(){
 	case MODE_1:
 		traffic_light_horizontal();
 		traffic_light_vertical();
-		led7seg_run();
+		traffic_led7seg();
 		if(isMODE_Pressed() == 1){
 			HAL_GPIO_WritePin(GPIOA, PA1_Pin| PA2_Pin | PA3_Pin |PA4_Pin |
 									PA5_Pin | PA6_Pin, SET);

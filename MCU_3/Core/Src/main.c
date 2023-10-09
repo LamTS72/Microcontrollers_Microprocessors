@@ -108,7 +108,6 @@ int main(void)
   setTimer1(15);
   setTimer2(15);
   setTimer3(15);
-  setTimer4(15);
   while (1)
   {
     /* USER CODE END WHILE */
