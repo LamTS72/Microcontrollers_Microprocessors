@@ -50,38 +50,38 @@ void setTimer4(int duration){
 
 void timerRun(){
 	if(timer0_counter > 0){
-			timer0_counter--;
-			if(timer0_counter <= 0){
-				timer0_flag = 1;
-			}
+		timer0_counter--;
+		if(timer0_counter <= 0){
+			timer0_flag = 1;
+		}
 	}
 
 	if(timer1_counter > 0){
-			timer1_counter--;
-			if(timer1_counter <= 0){
-				timer1_flag = 1;
-			}
+		timer1_counter--;
+		if(timer1_counter <= 0){
+			timer1_flag = 1;
+		}
 	}
 
 	if(timer2_counter > 0){
-			timer2_counter--;
-			if(timer2_counter <= 0){
-				timer2_flag = 1;
-			}
+		timer2_counter--;
+		if(timer2_counter <= 0){
+			timer2_flag = 1;
+		}
 	}
 
 	if(timer3_counter > 0){
-			timer3_counter--;
-			if(timer3_counter <= 0){
-				timer3_flag = 1;
-			}
+		timer3_counter--;
+		if(timer3_counter <= 0){
+			timer3_flag = 1;
+		}
 	}
 
 	if(timer4_counter > 0){
-			timer4_counter--;
-			if(timer4_counter <= 0){
-				timer4_flag = 1;
-			}
+		timer4_counter--;
+		if(timer4_counter <= 0){
+			timer4_flag = 1;
+		}
 	}
 
 

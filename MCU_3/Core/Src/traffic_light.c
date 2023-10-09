@@ -16,53 +16,53 @@ int counter_v = green_counter;
 int light_hmode = 0;
 int light_vmode = 0;
 void traffic_light_horizontal(){
-if(timer1_flag ==1){
-	counter_h--;
-	switch (light_hmode){
-	case 0:
-			HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin, RESET);
-			HAL_GPIO_WritePin(PA2_GPIO_Port, PA2_Pin, SET);
-			HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, SET);
-			updateClockBuffer_horizontal(counter_h);
-			if(counter_h <= 0 ){
-				counter_h = green_counter;
-				light_hmode = 1;
-			}
-			else{
-				setTimer1(100);
-			}
-			break;
-		case 1:
-			//horizontal
-			HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin, SET);
-			HAL_GPIO_WritePin(PA2_GPIO_Port, PA2_Pin, SET);
-			HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, RESET);
-			updateClockBuffer_horizontal(counter_h);
-			if(counter_h <= 0){
-				counter_h = yellow_counter;
-				light_hmode = 2;
-			}
-			else{
-				setTimer1(100);
-			}
-			break;
-		case 2:
-			//horizontal
-			HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin, SET);
-			HAL_GPIO_WritePin(PA2_GPIO_Port, PA2_Pin, RESET);
-			HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, SET);
-			updateClockBuffer_horizontal(counter_h);
-			if(counter_h <= 0 ){
-				counter_h = red_counter;
-				light_hmode = 0;
-			}
-			else{
-				setTimer1(100);
-			}
-			break;
-	}
+	if(timer1_flag ==1){
+		counter_h--;
+		switch (light_hmode){
+		case 0:
+				HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin, RESET);
+				HAL_GPIO_WritePin(PA2_GPIO_Port, PA2_Pin, SET);
+				HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, SET);
+				updateClockBuffer_horizontal(counter_h);
+				if(counter_h <= 0 ){
+					counter_h = green_counter;
+					light_hmode = 1;
+				}
+				else{
+					setTimer1(100);
+				}
+				break;
+			case 1:
+				//horizontal
+				HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin, SET);
+				HAL_GPIO_WritePin(PA2_GPIO_Port, PA2_Pin, SET);
+				HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, RESET);
+				updateClockBuffer_horizontal(counter_h);
+				if(counter_h <= 0){
+					counter_h = yellow_counter;
+					light_hmode = 2;
+				}
+				else{
+					setTimer1(100);
+				}
+				break;
+			case 2:
+				//horizontal
+				HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin, SET);
+				HAL_GPIO_WritePin(PA2_GPIO_Port, PA2_Pin, RESET);
+				HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, SET);
+				updateClockBuffer_horizontal(counter_h);
+				if(counter_h <= 0 ){
+					counter_h = red_counter;
+					light_hmode = 0;
+				}
+				else{
+					setTimer1(100);
+				}
+				break;
+		}
 
-}
+	}
 }
 void traffic_light_vertical(){
 if(timer2_flag == 1){
@@ -115,7 +115,24 @@ if(timer2_flag == 1){
 }
 
 void led_blinked(int blinked_mode){
-
+	HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+	switch (blinked_mode){
+	case 1:
+		HAL_GPIO_TogglePin(GPIOA, PA1_Pin);
+		HAL_GPIO_TogglePin(GPIOA, PA4_Pin);
+		//setTimer4(20);
+		break;
+	case 2:
+		HAL_GPIO_TogglePin(GPIOA, PA2_Pin);
+		HAL_GPIO_TogglePin(GPIOA, PA5_Pin);
+		//setTimer4(20);
+		break;
+	case 3:
+		HAL_GPIO_TogglePin(GPIOA, PA3_Pin);
+		HAL_GPIO_TogglePin(GPIOA, PA6_Pin);
+		//setTimer4(20);
+		break;
+	}
 }
 
 

@@ -5,7 +5,7 @@
  *      Author: Windows
  */
 #include "button.h"
-
+#include "main.h"
 
 int KeyReg0[3] = {NORMAL_STATE, NORMAL_STATE, NORMAL_STATE};
 int KeyReg1[3] = {NORMAL_STATE, NORMAL_STATE, NORMAL_STATE};
@@ -55,26 +55,26 @@ void subKeyProcess(int i){
 
 void getKeyInput(){
 	for (int i=0; i<3; i++){
-		KeyReg0[i] = KeyReg1[i];
-		KeyReg1[i] = KeyReg2[i];
-		KeyReg2[i] = HAL_GPIO_ReadPin(GPIOA, (uint16_t)(0x01)<<(11+i));
-		if ((KeyReg0[i] == KeyReg1[i]) && (KeyReg1[i] == KeyReg2[i])) {
-			if (KeyReg3[i] != KeyReg2[i]){
-				KeyReg3[i] = KeyReg2[i];
-				if (KeyReg2[i] == PRESSED_STATE){
-					subKeyProcess(i);
-					TimerForKeyPress[i] = 200;
+			KeyReg0[i] = KeyReg1[i];
+			KeyReg1[i] = KeyReg2[i];
+			KeyReg2[i] = HAL_GPIO_ReadPin(GPIOA, (uint16_t)(0x01)<<(12+i));
+			if ((KeyReg0[i] == KeyReg1[i]) && (KeyReg1[i] == KeyReg2[i])) {
+				if (KeyReg3[i] != KeyReg2[i]){
+					KeyReg3[i] = KeyReg2[i];
+					if (KeyReg2[i] == PRESSED_STATE){
+						subKeyProcess(i);
+						TimerForKeyPress[i] = 200;
+					}
 				}
-			}
-			else{
-				TimerForKeyPress[i]--;
-				if (TimerForKeyPress[i] ==0){
-					KeyReg3[i] = NORMAL_STATE;
-					//TimerForKeyPress[i] = 200;
+				else{
+					TimerForKeyPress[i]--;
+					if (TimerForKeyPress[i] ==0){
+						KeyReg3[i] = NORMAL_STATE;
+						//TimerForKeyPress[i] = 200;
+					}
 				}
 			}
 		}
-	}
 }
 
 

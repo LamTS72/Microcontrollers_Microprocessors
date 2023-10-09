@@ -114,9 +114,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//	  display7SEG(counter--);
-//	  traffic_light();
-//	  HAL_Delay(1000);
+
+
 	  fsm_mode_run();
   }
   /* USER CODE END 3 */

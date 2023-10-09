@@ -1,4 +1,4 @@
-23:28:40 **** Incremental Build of configuration Debug for project MCU_3 ****
+12:24:22 **** Incremental Build of configuration Debug for project MCU_3 ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/traffic_light.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/traffic_light.d" -MT"Core/Src/traffic_light.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/traffic_light.o"
 arm-none-eabi-gcc -o "MCU_3.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\MCU_LAB\Microcontrollers_Microprocessors\MCU_3\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MCU_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -8,16 +8,16 @@ arm-none-eabi-size   MCU_3.elf
 arm-none-eabi-objdump -h -S  MCU_3.elf  > "MCU_3.list"
 arm-none-eabi-objcopy  -O ihex  MCU_3.elf  "MCU_3.hex"
    text	   data	    bss	    dec	    hex	filename
-   8916	     92	   1724	  10732	   29ec	MCU_3.elf
+   9280	     88	   1728	  11096	   2b58	MCU_3.elf
 arm-none-eabi-objcopy  -O binary  MCU_3.elf  "MCU_3.bin"
 Finished building: default.size.stdout
  
 Finished building: MCU_3.hex
 Finished building: MCU_3.bin
  
+ 
 Finished building: MCU_3.list
  
- 
 
-23:28:41 Build Finished. 0 errors, 0 warnings. (took 662ms)
+12:24:23 Build Finished. 0 errors, 0 warnings. (took 673ms)
 

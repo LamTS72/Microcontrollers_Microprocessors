@@ -11,11 +11,12 @@
 #include "software_timer.h"
 #include "led7seg.h"
 #include "traffic_ligh.h"
+#include "button.h"
 
 #define MODE_1  1 //normal
 #define MODE_2	2 //red_blink
 #define MODE_3	3 //yellow_blink
-#define MODE_4	4
+#define MODE_4	4 //green_blink
 extern int state;
 
 void fsm_mode_run();

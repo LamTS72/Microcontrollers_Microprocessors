@@ -20,5 +20,5 @@ extern int light_hmode;
 extern int light_vmode;
 void traffic_light_horizontal();
 void traffic_light_vertical();
-void led_blinked();
+void led_blinked(int blinked_mod);
 #endif /* INC_TRAFFIC_LIGH_H_ */
