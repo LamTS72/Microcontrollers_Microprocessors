@@ -7,9 +7,12 @@
 
 #include "traffic_ligh.h"
 
-const int red_counter = 5;
-const int green_counter = 3;
-const int yellow_counter = 2;
+int red_counter = 5;
+int green_counter = 3;
+int yellow_counter = 2;
+int red_change = 5;
+int green_change = 3;
+int yellow_change= 2;
 
 int led_hred = 5;
 int led_hgreen = 3;
@@ -33,8 +36,14 @@ void traffic_light_horizontal(){
 		HAL_GPIO_WritePin(PA2_GPIO_Port, PA2_Pin, SET);
 		HAL_GPIO_WritePin(PA3_GPIO_Port, PA3_Pin, SET);
 		if(timer1_flag == 1){
-			light_hmode =GREEN;
+			light_hmode = GREEN;
 			setTimer1(green_counter*1000);
+		}
+		if(state == MODE_2){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+
+			light_hmode = RED_BLINK;
+			setTimer1(25);
 		}
 		break;
 	case GREEN:
@@ -46,6 +55,12 @@ void traffic_light_horizontal(){
 			light_hmode = YELLOW;
 			setTimer1(yellow_counter*1000);
 		}
+		if(state == MODE_2){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+
+			light_hmode = RED_BLINK;
+			setTimer1(25);
+		}
 		break;
 	case YELLOW:
 		//horizontal
@@ -56,8 +71,60 @@ void traffic_light_horizontal(){
 			light_hmode = RED;
 			setTimer1(red_counter*1000);
 		}
+		if(state == MODE_2){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_hmode = RED_BLINK;
+			setTimer1(25);
+		}
+		break;
+	case RED_BLINK:
+		if (timer1_flag == 1){
+			HAL_GPIO_TogglePin(GPIOA, PA1_Pin);
+			setTimer1(25);
+		}
+		if(state == MODE_3){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_hmode = YELLOW_BLINK;
+			setTimer1(25);
+		}
+		if(state == MODE_1){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_hmode = RED;
+			setTimer1(red_counter*1000);
+		}
+		break;
+	case YELLOW_BLINK:
+		if (timer1_flag == 1){
+			HAL_GPIO_TogglePin(GPIOA, PA2_Pin);
+			setTimer1(25);
+		}
+		if(state == MODE_4){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_hmode = GREEN_BLINK;
+			setTimer1(25);
+		}
+
+		if(state == MODE_1){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_hmode = RED;
+			setTimer1(red_counter*1000);
+		}
+		break;
+	case GREEN_BLINK:
+		if (timer1_flag == 1){
+			HAL_GPIO_TogglePin(GPIOA, PA3_Pin);
+			setTimer1(25);
+		}
+		if(state == MODE_1){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_hmode = RED;
+			setTimer1(red_counter*1000);
+		}
+
 		break;
 	}
+
+
 
 }
 void traffic_light_vertical(){
@@ -75,6 +142,12 @@ void traffic_light_vertical(){
 			light_vmode = YELLOW;
 			setTimer2(yellow_counter*1000);
 		}
+		if(state == MODE_2){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+
+			light_vmode = RED_BLINK;
+			setTimer2(25);
+		}
 		break;
 		case YELLOW:
 		//vertical
@@ -84,6 +157,12 @@ void traffic_light_vertical(){
 		if(timer2_flag == 1){
 			light_vmode = RED;
 			setTimer2(red_counter*1000);
+		}
+		if(state == MODE_2){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+
+			light_vmode = RED_BLINK;
+			setTimer2(25);
 		}
 		break;
 		case RED:
@@ -95,6 +174,56 @@ void traffic_light_vertical(){
 			light_vmode = GREEN;
 			setTimer2(green_counter*1000);
 		}
+		if(state == MODE_2){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_vmode = RED_BLINK;
+			setTimer2(25);
+		}
+		break;
+	case RED_BLINK:
+		if (timer2_flag == 1){
+			HAL_GPIO_TogglePin(GPIOA, PA4_Pin);
+			setTimer2(25);
+		}
+		if(state == MODE_3){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_vmode = YELLOW_BLINK;
+			setTimer2(25);
+		}
+
+		if(state == MODE_1){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_vmode = GREEN;
+			setTimer2(green_counter*1000);
+		}
+		break;
+	case YELLOW_BLINK:
+		if (timer2_flag == 1){
+			HAL_GPIO_TogglePin(GPIOA, PA5_Pin);
+			setTimer2(25);
+		}
+		if(state == MODE_4){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_vmode = GREEN_BLINK;
+			setTimer2(25);
+		}
+		if(state == MODE_1){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_vmode = GREEN;
+			setTimer2(green_counter*1000);
+		}
+		break;
+	case GREEN_BLINK:
+		if (timer2_flag == 1){
+			HAL_GPIO_TogglePin(GPIOA, PA6_Pin);
+			setTimer2(25);
+		}
+		if(state == MODE_1){
+			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
+			light_vmode = GREEN;
+			setTimer2(green_counter*1000);
+		}
+
 		break;
 	}
 }
@@ -107,6 +236,10 @@ void traffic_led7seg(){
 			timer4_flag = 1;
 			break;
 		case RED:
+			if(state == MODE_2){
+				led_hmode = RED_BLINK;
+				setTimer4(100);
+			}
 			if(timer4_flag == 1){
 				updateClockBuffer_horizontal(led_hred);
 				led_hred--;
@@ -121,6 +254,10 @@ void traffic_led7seg(){
 			}
 			break;
 		case GREEN:
+			if(state == MODE_2){
+				led_hmode = RED_BLINK;
+				setTimer4(100);
+			}
 			if(timer4_flag == 1){
 				updateClockBuffer_horizontal(led_hgreen);
 				led_hgreen--;
@@ -135,6 +272,10 @@ void traffic_led7seg(){
 			}
 			break;
 		case YELLOW:
+			if(state == MODE_2){
+				led_hmode = RED_BLINK;
+				setTimer4(100);
+			}
 			if(timer4_flag == 1){
 				updateClockBuffer_horizontal(led_hyellow);
 				led_hyellow--;
@@ -148,7 +289,47 @@ void traffic_led7seg(){
 
 			}
 			break;
-		default:
+		case RED_BLINK:
+			if(timer4_flag == 1){
+				updateClockBuffer_horizontal(2);
+				setTimer4(100);
+			}
+			if(state == MODE_3){
+				led_hmode = YELLOW_BLINK;
+				setTimer4(100);
+			}
+			if(state == MODE_1){
+				led_hmode = RED;
+				timer4_flag = 1;
+				led_hred = red_counter;
+			}
+			break;
+		case YELLOW_BLINK:
+			if(timer4_flag == 1){
+				updateClockBuffer_horizontal(3);
+				setTimer4(100);
+			}
+			if(state == MODE_4){
+				led_hmode = GREEN_BLINK;
+				setTimer4(100);
+			}
+
+			if(state == MODE_1){
+				led_hmode = RED;
+				timer4_flag = 1;
+				led_hred = red_counter;
+			}
+			break;
+		case GREEN_BLINK:
+			if(timer4_flag == 1){
+				updateClockBuffer_horizontal(4);
+				setTimer4(100);
+			}
+			if(state == MODE_1){
+				led_hmode = RED;
+				timer4_flag = 1;
+				led_hred = red_counter;
+			}
 			break;
 	}
 
@@ -158,6 +339,10 @@ void traffic_led7seg(){
 			timer5_flag = 1;
 			break;
 		case GREEN:
+			if(state == MODE_2){
+				led_vmode = RED_BLINK;
+				setTimer5(100);
+			}
 			if(timer5_flag == 1){
 				updateClockBuffer_vertical(led_vgreen);
 				led_vgreen--;
@@ -171,6 +356,10 @@ void traffic_led7seg(){
 			}
 			break;
 		case YELLOW:
+			if(state == MODE_2){
+				led_vmode = RED_BLINK;
+				setTimer5(100);
+			}
 			if(timer5_flag == 1){
 				updateClockBuffer_vertical(led_vyellow);
 				led_vyellow--;
@@ -185,6 +374,10 @@ void traffic_led7seg(){
 			}
 			break;
 		case RED:
+			if(state == MODE_2){
+				led_vmode = RED_BLINK;
+				setTimer5(100);
+			}
 			if(timer5_flag == 1){
 				updateClockBuffer_vertical(led_vred);
 				led_vred--;
@@ -198,30 +391,52 @@ void traffic_led7seg(){
 
 			}
 			break;
-		default:
-				break;
-		}
-}
+		case RED_BLINK:
+			if(timer5_flag == 1){
+				updateClockBuffer_vertical(red_change);
+				setTimer5(100);
+			}
+			if(state == MODE_3){
+				led_vmode = YELLOW_BLINK;
+				setTimer5(100);
+			}
 
-void led_blinked(int blinked_mode){
-	HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
-	switch (blinked_mode){
-	case 1:
-		HAL_GPIO_TogglePin(GPIOA, PA1_Pin);
-		HAL_GPIO_TogglePin(GPIOA, PA4_Pin);
-		//setTimer4(20);
-		break;
-	case 2:
-		HAL_GPIO_TogglePin(GPIOA, PA2_Pin);
-		HAL_GPIO_TogglePin(GPIOA, PA5_Pin);
-		//setTimer4(20);
-		break;
-	case 3:
-		HAL_GPIO_TogglePin(GPIOA, PA3_Pin);
-		HAL_GPIO_TogglePin(GPIOA, PA6_Pin);
-		//setTimer4(20);
-		break;
+			if(state == MODE_1){
+				led_vmode = GREEN;
+				timer5_flag = 1;
+				led_vgreen = green_counter;
+			}
+			break;
+		case YELLOW_BLINK:
+			if(timer5_flag == 1){
+				updateClockBuffer_vertical(yellow_change);
+				setTimer5(100);
+			}
+			if(state == MODE_4){
+				led_vmode = GREEN_BLINK;
+				setTimer5(100);
+			}
+
+			if(state == MODE_1){
+				led_vmode = GREEN;
+				timer5_flag = 1;
+				led_vgreen = green_counter;
+			}
+			break;
+		case GREEN_BLINK:
+			if(timer5_flag == 1){
+				updateClockBuffer_vertical(green_change);
+				setTimer5(100);
+			}
+			if(state == MODE_1){
+				led_vmode = GREEN;
+				timer5_flag = 1;
+				led_vgreen = green_counter;
+			}
+
+			break;
 	}
 }
+
 
 

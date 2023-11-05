@@ -1,4 +1,3 @@
-../Core/Src/traffic_light.c:25:6:traffic_light_horizontal	8	static
-../Core/Src/traffic_light.c:63:6:traffic_light_vertical	8	static
-../Core/Src/traffic_light.c:102:6:traffic_led7seg	8	static
-../Core/Src/traffic_light.c:206:6:led_blinked	16	static
+../Core/Src/traffic_light.c:28:6:traffic_light_horizontal	8	static
+../Core/Src/traffic_light.c:143:6:traffic_light_vertical	8	static
+../Core/Src/traffic_light.c:257:6:traffic_led7seg	8	static

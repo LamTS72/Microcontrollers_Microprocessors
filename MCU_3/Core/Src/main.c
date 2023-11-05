@@ -112,7 +112,6 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-
 	  fsm_mode_run();
   }
   /* USER CODE END 3 */

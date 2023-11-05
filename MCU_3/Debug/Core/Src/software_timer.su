@@ -1,7 +1,8 @@
-../Core/Src/software_timer.c:28:6:setTimer0	16	static
-../Core/Src/software_timer.c:33:6:setTimer1	16	static
-../Core/Src/software_timer.c:39:6:setTimer2	16	static
-../Core/Src/software_timer.c:45:6:setTimer3	16	static
-../Core/Src/software_timer.c:50:6:setTimer4	16	static
-../Core/Src/software_timer.c:55:6:setTimer5	16	static
-../Core/Src/software_timer.c:60:6:timerRun	4	static
+../Core/Src/software_timer.c:31:6:setTimer0	16	static
+../Core/Src/software_timer.c:36:6:setTimer1	16	static
+../Core/Src/software_timer.c:42:6:setTimer2	16	static
+../Core/Src/software_timer.c:48:6:setTimer3	16	static
+../Core/Src/software_timer.c:53:6:setTimer4	16	static
+../Core/Src/software_timer.c:58:6:setTimer5	16	static
+../Core/Src/software_timer.c:63:6:setTimer6	16	static
+../Core/Src/software_timer.c:68:6:timerRun	4	static
