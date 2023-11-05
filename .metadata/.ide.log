@@ -11326,3 +11326,6 @@
 2023-11-05 18:41:27,318 [INFO] ProjectBuilder:4283 - Time for Generating toolchain IDE Files: 1245mS.
 2023-11-05 18:41:27,319 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 1mS.
 2023-11-05 18:41:27,320 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
+2023-11-05 19:19:04,060 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Warning: NLS missing message: ExternalToolsPreferencePage_External_tool_project_builders_migration_2 in: org.eclipse.ui.externaltools.internal.ui.ExternalToolsUIMessages
+2023-11-05 19:19:04,066 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Warning: NLS missing message: ExternalToolsPreferencePage_Prompt_before_migrating_3 in: org.eclipse.ui.externaltools.internal.ui.ExternalToolsUIMessages
+2023-11-05 19:19:04,066 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Warning: NLS missing message: ExternalToolsPreferencePage_1 in: org.eclipse.ui.externaltools.internal.ui.ExternalToolsUIMessages
