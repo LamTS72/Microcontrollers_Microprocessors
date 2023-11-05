@@ -41,6 +41,7 @@ void setTimer2(int duration){
 	timer2_flag = 0;
 }
 
+//timer for led 7 segment
 void setTimer3(int duration){
 	timer3_counter = duration;
 	timer3_flag = 0;

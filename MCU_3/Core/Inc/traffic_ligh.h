@@ -11,11 +11,18 @@
 #include "main.h"
 #include "led7seg.h"
 #include "software_timer.h"
+#define RED     1
+#define YELLOW  2
+#define GREEN   3
 extern const int red_counter;
-extern const int green_counter;
+extern const int greeled_hgreen;
 extern const int yellow_counter;
-extern int counter_h;
-extern int counter_v;
+extern int led_hred;
+extern int led_hgreen;
+extern int led_hyellow;
+extern int led_vred;
+extern int led_vgreen;
+extern int led_vyellow;
 extern int light_hmode;
 extern int light_vmode;
 extern int led_hmode;

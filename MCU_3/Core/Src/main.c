@@ -105,9 +105,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   Ex_Init();
   setTimer0(10);
-  setTimer1(15);
-  setTimer2(15);
-  setTimer3(15);
+  setTimer3(1);
   while (1)
   {
     /* USER CODE END WHILE */

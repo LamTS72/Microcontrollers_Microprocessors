@@ -22,6 +22,7 @@ void fsm_mode_run(){
 			HAL_GPIO_WritePin(GPIOA, PA1_Pin| PA2_Pin | PA3_Pin |PA4_Pin |
 									PA5_Pin | PA6_Pin, SET);
 			state = MODE_2;
+			setTimer0(100);
 		}
 		break;
 	case MODE_2:
