@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020078  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00008e8e  00000000  00000000  000200a1  2**0
+ 12 .debug_info   00008e8d  00000000  00000000  000200a1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001b00  00000000  00000000  00028f2f  2**0
+ 13 .debug_abbrev 00001ae8  00000000  00000000  00028f2e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000a68  00000000  00000000  0002aa30  2**3
+ 14 .debug_aranges 00000a68  00000000  00000000  0002aa18  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000970  00000000  00000000  0002b498  2**3
+ 15 .debug_ranges 00000970  00000000  00000000  0002b480  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00016ae4  00000000  00000000  0002be08  2**0
+ 16 .debug_macro  00016ae4  00000000  00000000  0002bdf0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000b4f6  00000000  00000000  000428ec  2**0
+ 17 .debug_line   0000b4f6  00000000  00000000  000428d4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000823ae  00000000  00000000  0004dde2  2**0
+ 18 .debug_str    000823ae  00000000  00000000  0004ddca  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000d0190  2**0
+ 19 .comment      00000050  00000000  00000000  000d0178  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002958  00000000  00000000  000d01e0  2**2
+ 20 .debug_frame  00002958  00000000  00000000  000d01c8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2342,11 +2342,7 @@ void traffic_light_horizontal(){
 			setTimer1(25);
  8000ea0:	2019      	movs	r0, #25
  8000ea2:	f7ff fd9d 	bl	80009e0 <setTimer1>
-//		if(isSET_Pressed() == 1){
-//			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
-//			light_hmode = RED;
-//			setTimer1(red_counter*1000);
-//		}
+		}
 		if(state == MODE_1){
  8000ea6:	4b3f      	ldr	r3, [pc, #252]	; (8000fa4 <traffic_light_horizontal+0x29c>)
  8000ea8:	681b      	ldr	r3, [r3, #0]
@@ -2402,11 +2398,8 @@ void traffic_light_horizontal(){
 			setTimer1(25);
  8000f00:	2019      	movs	r0, #25
  8000f02:	f7ff fd6d 	bl	80009e0 <setTimer1>
-//		if(isSET_Pressed() == 1){
-//			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
-//			light_hmode = RED;
-//			setTimer1(red_counter*1000);
-//		}
+		}
+
 		if(state == MODE_1){
  8000f06:	4b27      	ldr	r3, [pc, #156]	; (8000fa4 <traffic_light_horizontal+0x29c>)
  8000f08:	681b      	ldr	r3, [r3, #0]
@@ -2466,11 +2459,8 @@ void traffic_light_horizontal(){
  8000f68:	fb02 f303 	mul.w	r3, r2, r3
  8000f6c:	4618      	mov	r0, r3
  8000f6e:	f7ff fd37 	bl	80009e0 <setTimer1>
-//		if(isSET_Pressed() == 1){
-//			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
-//			light_hmode = RED;
-//			setTimer1(red_counter*1000);
-//		}
+		}
+
 		break;
  8000f72:	e009      	b.n	8000f88 <traffic_light_horizontal+0x280>
 		break;
@@ -2733,11 +2723,8 @@ void traffic_light_vertical(){
 			setTimer2(25);
  8001144:	2019      	movs	r0, #25
  8001146:	f7ff fc67 	bl	8000a18 <setTimer2>
-//		if(isSET_Pressed() == 1){
-//			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
-//			light_vmode = GREEN;
-//			setTimer2(green_counter*1000);
-//		}
+		}
+
 		if(state == MODE_1){
  800114a:	4b3f      	ldr	r3, [pc, #252]	; (8001248 <traffic_light_vertical+0x29c>)
  800114c:	681b      	ldr	r3, [r3, #0]
@@ -2793,11 +2780,7 @@ void traffic_light_vertical(){
 			setTimer2(25);
  80011a4:	2019      	movs	r0, #25
  80011a6:	f7ff fc37 	bl	8000a18 <setTimer2>
-//		if(isSET_Pressed() == 1){
-//			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
-//			light_vmode = GREEN;
-//			setTimer2(green_counter*1000);
-//		}
+		}
 		if(state == MODE_1){
  80011aa:	4b27      	ldr	r3, [pc, #156]	; (8001248 <traffic_light_vertical+0x29c>)
  80011ac:	681b      	ldr	r3, [r3, #0]
@@ -2857,11 +2840,8 @@ void traffic_light_vertical(){
  800120c:	fb02 f303 	mul.w	r3, r2, r3
  8001210:	4618      	mov	r0, r3
  8001212:	f7ff fc01 	bl	8000a18 <setTimer2>
-//		if(isSET_Pressed() == 1){
-//			HAL_GPIO_WritePin(GPIOA, PA1_Pin |PA4_Pin | PA2_Pin| PA5_Pin|PA3_Pin | PA6_Pin , SET);
-//			light_vmode = GREEN;
-//			setTimer2(green_counter*1000);
-//		}
+		}
+
 		break;
  8001216:	e009      	b.n	800122c <traffic_light_vertical+0x280>
 		break;
@@ -3120,10 +3100,6 @@ void traffic_led7seg(){
  80013ae:	2064      	movs	r0, #100	; 0x64
  80013b0:	f7ff fb62 	bl	8000a78 <setTimer4>
 			}
-//			if(isSET_Pressed() == 1){
-//				led_hmode = RED;
-//				setTimer4(100);
-//			}
 			if(state == MODE_1){
  80013b4:	4b3b      	ldr	r3, [pc, #236]	; (80014a4 <traffic_led7seg+0x254>)
  80013b6:	681b      	ldr	r3, [r3, #0]
@@ -3171,10 +3147,7 @@ void traffic_led7seg(){
  80013f4:	2064      	movs	r0, #100	; 0x64
  80013f6:	f7ff fb3f 	bl	8000a78 <setTimer4>
 			}
-//			if(isSET_Pressed() == 1){
-//				led_hmode = RED;
-//				setTimer4(100);
-//			}
+
 			if(state == MODE_1){
  80013fa:	4b2a      	ldr	r3, [pc, #168]	; (80014a4 <traffic_led7seg+0x254>)
  80013fc:	681b      	ldr	r3, [r3, #0]
@@ -3228,10 +3201,6 @@ void traffic_led7seg(){
  8001444:	4a18      	ldr	r2, [pc, #96]	; (80014a8 <traffic_led7seg+0x258>)
  8001446:	6013      	str	r3, [r2, #0]
 			}
-//			if(isSET_Pressed() == 1){
-//				led_hmode = RED;
-//				setTimer4(100);
-//			}
 			break;
  8001448:	e009      	b.n	800145e <traffic_led7seg+0x20e>
 			break;
@@ -3486,10 +3455,7 @@ void traffic_led7seg(){
  80015ea:	2064      	movs	r0, #100	; 0x64
  80015ec:	f7ff fa60 	bl	8000ab0 <setTimer5>
 			}
-//			if(isSET_Pressed() == 1){
-//				led_vmode = GREEN;
-//				timer5_flag = 1;
-//			}
+
 			if(state == MODE_1){
  80015f0:	4b2d      	ldr	r3, [pc, #180]	; (80016a8 <traffic_led7seg+0x458>)
  80015f2:	681b      	ldr	r3, [r3, #0]
@@ -3539,10 +3505,7 @@ void traffic_led7seg(){
  8001634:	2064      	movs	r0, #100	; 0x64
  8001636:	f7ff fa3b 	bl	8000ab0 <setTimer5>
 			}
-//			if(isSET_Pressed() == 1){
-//				led_vmode = GREEN;
-//				timer5_flag = 1;
-//			}
+
 			if(state == MODE_1){
  800163a:	4b1b      	ldr	r3, [pc, #108]	; (80016a8 <traffic_led7seg+0x458>)
  800163c:	681b      	ldr	r3, [r3, #0]
@@ -3598,10 +3561,7 @@ void traffic_led7seg(){
  8001688:	4a0a      	ldr	r2, [pc, #40]	; (80016b4 <traffic_led7seg+0x464>)
  800168a:	6013      	str	r3, [r2, #0]
 			}
-//			if(isSET_Pressed() == 1){
-//				led_vmode = GREEN;
-//				setTimer5(100);
-//			}
+
 			break;
  800168c:	e009      	b.n	80016a2 <traffic_led7seg+0x452>
 			break;
