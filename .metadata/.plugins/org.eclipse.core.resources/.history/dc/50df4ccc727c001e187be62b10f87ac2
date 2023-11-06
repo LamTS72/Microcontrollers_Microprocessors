@@ -84,6 +84,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 	if (huart->Instance == USART2){
 		HAL_UART_Transmit(&huart2, &buffer_byte, 1, 10);
 		buffer[index_buffer] = buffer_byte;
+		//if(buffer_byte == '!')
+		if (buffer_byte == '#') {
+			cmd_data_index = 0;
+			mode = SERVING;
+		}
 		index_buffer++;
 		if (index_buffer == MAX_BUFFER_SIZE) {
 			index_buffer = 0;
@@ -112,13 +117,8 @@ void cmd_parser_fsm(){
 	if(buffer_flag == 1){
 		switch(mode){
 		case INIT:
-			if (buffer[index_buffer-1] == '!') {
+			if (buffer_byte == '!') {
 				mode = WAITING;
-			}
-
-			if (buffer[index_buffer-1] == '#') {
-				cmd_data_index = 0;
-				mode = SERVING;
 			}
 			break;
 		case WAITING:
