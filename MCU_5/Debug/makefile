@@ -55,6 +55,9 @@ MCU_5.list \
 OBJCOPY_HEX += \
 MCU_5.hex \
 
+OBJCOPY_BIN += \
+MCU_5.bin \
+
 
 # All Target
 all: main-build
@@ -83,12 +86,17 @@ MCU_5.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+MCU_5.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "MCU_5.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) MCU_5.elf MCU_5.hex MCU_5.list MCU_5.map default.size.stdout
+	-$(RM) MCU_5.bin MCU_5.elf MCU_5.hex MCU_5.list MCU_5.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

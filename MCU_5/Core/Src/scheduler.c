@@ -9,17 +9,7 @@
 #include "main.h"
 #include "scheduler.h"
 
-typedef struct {
-	// Pointer to the task (must be a ’ void ( void ) ’ function )
-	void (*pTask)(void);
-	uint32_t Delay;
-	uint32_t Period;
-	uint8_t RunMe;
-	uint32_t TaskID;
-} sTask;
 
-//initialize array task with 30 elements
-#define SCH_MAX_TASKS 30
 #define NO_TASK_ID 0
 sTask SCH_tasks_G[SCH_MAX_TASKS];
 
@@ -32,9 +22,9 @@ void SCH_Init(void) {
 
 
 
-uint32_t SCH_Add_Task(void (*pFunction)(), unsigned int DELAY,unsigned int PERIOD) {
+unsigned char SCH_Add_Task(void (*pFunction)(), unsigned int DELAY,unsigned int PERIOD) {
 	if (numberOfTask == SCH_MAX_TASKS)
-		return 0; //full
+		return 0;
 
 	unsigned char pivot = 0;
 
@@ -76,7 +66,7 @@ void SCH_Update(void) {
 
 }
 
-uint8_t SCH_Delete_Task(uint32_t taskID) {
+unsigned char SCH_Delete_Task(uint32_t taskID) {
 	if (numberOfTask == 0) return 0; //empty
 	for (int i = 0; i < numberOfTask - 1; i++) { //shift left array, last elements reset
 		SCH_tasks_G[i] = SCH_tasks_G[i + 1];

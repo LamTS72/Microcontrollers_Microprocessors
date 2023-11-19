@@ -91,7 +91,6 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  HAL_TIM_Base_Start_IT(&htim2);
 
 
   /* USER CODE END Init */
@@ -107,25 +106,35 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start_IT(&htim2);
+
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   SCH_Init();
-  HAL_GPIO_WritePin(GPIOA, PA4_Pin |PA5_Pin | PA6_Pin |PA7_Pin |PA8_Pin, SET);
+  //HAL_GPIO_WritePin(GPIOA, PA4_Pin |PA5_Pin | PA6_Pin |PA7_Pin |PA8_Pin, SET);
   SCH_Add_Task(togglePA4, 50, 100);
   SCH_Add_Task(togglePA5, 100, 100);
-  SCH_Add_Task(togglePA6, 200, 100);
-  SCH_Add_Task(togglePA7, 300, 100);
-  SCH_Add_Task(togglePA8, 400, 0);
+  SCH_Add_Task(togglePA6, 150, 100);
+  SCH_Add_Task(togglePA7, 200, 100);
+  SCH_Add_Task(togglePA8, 300, 0);
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 	  SCH_Dispatch_Tasks();
+//	  togglePA4();
+//	  HAL_Delay(2000);
+//	  togglePA5();
+//	  HAL_Delay(2000);
 //	  togglePA6();
+//	  HAL_Delay(2000);
+//	  togglePA7();
+//	  HAL_Delay(2000);
+//	  togglePA8();
 //	  HAL_Delay(2000);
   }
   /* USER CODE END 3 */
