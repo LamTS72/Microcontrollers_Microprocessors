@@ -11368,3 +11368,10 @@
 2023-11-19 14:03:29,762 [INFO] IPUIPlugin:79 - create IPUIPlugin
 2023-11-19 14:03:29,921 [INFO] OpenFileManager:327 - Restore cursor
 2023-11-19 14:03:55,985 [INFO] NvicIntPanel:100 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,544x293,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-20 12:35:02,513 [INFO] Activator:177 - 
+
+
+2023-11-20 12:35:02,513 [INFO] Activator:178 - !SESSION log4j initialized
+2023-11-20 12:35:32,510 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2023-11-20 12:35:32,510 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2023-11-20 12:35:32,510 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.

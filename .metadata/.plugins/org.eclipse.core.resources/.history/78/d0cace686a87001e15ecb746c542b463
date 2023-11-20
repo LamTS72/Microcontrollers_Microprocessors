@@ -73,99 +73,6 @@ void togglePA8(){
 	HAL_GPIO_TogglePin(GPIOA, PA8_Pin);
 }
 
-#define MAX_CMD_SIZE 5
-#define MAX_BUFFER_SIZE 30
-#define INIT 0
-#define HANDLE 1
-#define SERVING 2
-#define RST 1
-#define OK 2
-
-uint8_t temp_byte;
-uint8_t buffer[MAX_BUFFER_SIZE];
-uint8_t index_buffer = 0;
-uint8_t buffer_flag = 0;
-uint8_t cmd_flag = 0;
-uint8_t cmd_data[MAX_CMD_SIZE];
-uint8_t cmd_data_index = 0;
-int ADC_value = 0;
-int mode = 0;
-
-void reset_buffer(){
-	for(int i=0; i < MAX_BUFFER_SIZE; i++){
-		buffer[i] = ' ';
-	}
-	index_buffer = 0;
-	//cmd_data_index = 0;
-}
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-	if (huart->Instance == USART2){
-		HAL_UART_Transmit(&huart2, &temp_byte, 1, 500);
-		buffer[index_buffer++] = temp_byte;
-		if (index_buffer == MAX_BUFFER_SIZE) {
-			index_buffer = 0;
-		}
-
-		buffer_flag = 1;
-		HAL_UART_Receive_IT(&huart2, &temp_byte, 1);
-	}
-}
-
-int check_RST(uint8_t str[]){
-	if (str[0] == 'R' && str[1] == 'S' && str[2] == 'T'){
-		return 1;
-	}
-	else return 0;
-}
-
-int check_OK(uint8_t str[]){
-	if (str[0] == 'O' && str[1] == 'K'){
-		return 1;
-	}
-	else return 0;
-}
-
-void cmd_parser_fsm(){
-	switch(mode){
-	case INIT:
-		if(temp_byte == '!'){
-			reset_buffer();
-			mode = HANDLE;
-		}
-		reset_buffer();
-		break;
-	case HANDLE:
-		if(index_buffer == 0){
-			mode = INIT;
-		}
-		else if(temp_byte == '#'){
-			memcpy(cmd_data, buffer, sizeof(cmd_data));
-			cmd_flag = 1;
-			mode = INIT;
-		}
-		else if(temp_byte == '!'){
-			reset_buffer();
-		}
-		break;
-	}
-}
-
-void uart_communication(){
-	char str[50];
-	if(cmd_flag == 1){
-		if(check_RST(cmd_data) == 1){
-			ADC_value = HAL_ADC_GetValue(&hadc1);
-			HAL_UART_Transmit(&huart2, (void *)str, sprintf(str, "!ADC=%d#\r\n",ADC_value), 500);
-		}
-		else if(check_OK(cmd_data) == 1){
-			ADC_value = -1;
-			cmd_flag = 0;
-		}
-	}
-}
-
-
-
 /* USER CODE END 0 */
 
 /**
@@ -212,7 +119,6 @@ int main(void)
   SCH_Add_Task(togglePA5, 100, 100);
   SCH_Add_Task(togglePA6, 150, 100);
   SCH_Add_Task(togglePA7, 200, 100);
-  SCH_Add_Task(togglePA8, 300, 0);
   SCH_Add_Task(togglePA8, 300, 0);
   while (1)
   {
